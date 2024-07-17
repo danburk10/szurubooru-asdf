@@ -686,10 +686,10 @@ def generate_post_thumbnail(post: model.Post) -> None:
     try:
         assert content
         image = images.Image(content)
-        image.resize_fill(
-            int(config.config["thumbnails"]["post_width"]),
-            int(config.config["thumbnails"]["post_height"]),
-        )
+#        image.resize_fill(
+#            int(config.config["thumbnails"]["post_width"]),
+#            int(config.config["thumbnails"]["post_height"]),
+#        )
         files.save(get_post_thumbnail_path(post), image.to_jpeg())
     except errors.ProcessingError:
         files.save(get_post_thumbnail_path(post), EMPTY_PIXEL)
